@@ -1,10 +1,13 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import PostCreate from './posts/PostCreate';
+import PostEdit from './posts/PostEdit';
+import PostDelete from './posts/PostDelete';
+import PostList from './posts/PostList';
+import PostShow from './posts/PostShow';
 import Header from './Header';
-import PageOne from './pages/PageOne';
-import PageTwo from './pages/PageTwo';
-import PageThree from './pages/PageThree';
+
 
 const App = () => {
     return (
@@ -12,9 +15,13 @@ const App = () => {
             <BrowserRouter>
                 <div>
                     <Header />
-                    <Route path="/" exact component={PageOne} />
-                    <Route path="/two" exact component={PageTwo} />
-                    <Route path="/three" exact component={PageThree} />
+                    <Switch>
+                        <Route path="/" exact component={PostList} />
+                        <Route path="/posts/new" exact component={PostCreate} />
+                        <Route path="/posts/edit/:id" exact component={PostEdit} />
+                        <Route path="/posts/delete/:id" exact component={PostDelete} />
+                        <Route path="/posts/:id" exact component={PostShow} />
+                    </Switch>
                 </div>
             </BrowserRouter>
         </div>

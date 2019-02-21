@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 
-class PageTwo extends Component {
+export default class PostDelete extends Component {
   render() {
     return (
       <div>
-        PageTwo
+        PostDelete
       </div>
     )
   }
 }
-
-export default PageTwo;

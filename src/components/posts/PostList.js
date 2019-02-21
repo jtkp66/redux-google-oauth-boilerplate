@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 
-class PageOne extends Component {
+export default class PostList extends Component {
   render() {
     return (
       <div>
-        PageOne
+        PostList
       </div>
     )
   }
 }
-
-export default PageOne;
