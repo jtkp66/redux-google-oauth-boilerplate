@@ -7,10 +7,22 @@ class PostList extends Component {
     this.props.fetchPosts();
   }
 
+  renderAdmin(post) {
+    if (post.userId === this.props.currentUserId) {
+      return (
+        <div className="right floated content">
+          <button className="ui button primary">Edit</button>
+          <button className="ui button negative">Delete</button>
+        </div>
+      )
+    }
+  }
+
   renderList() {
     return this.props.posts.map(post => {
       return (
         <div className="item" key={post.id}>
+          {this.renderAdmin(post)}
           <i className="large middle aligned icon book" />
           <div className="content">
             {post.title}
@@ -32,7 +44,10 @@ class PostList extends Component {
 }
 
 const mapStatetoProps = (state) => {
-  return { posts: Object.values(state.posts) };
+  return {
+    posts: Object.values(state.posts),
+    currentUserId: state.auth.userId
+  };
 }
 
 export default connect(mapStatetoProps, { fetchPosts })(PostList);
