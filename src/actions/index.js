@@ -1,3 +1,4 @@
+import posts from '../apis/posts';
 import { SIGN_IN, SIGN_OUT } from './types';
 
 export const signIn = (userId) => {
@@ -11,4 +12,8 @@ export const signOut = () => {
     return {
         type: SIGN_OUT
     };
+};
+
+export const createPost = formValues => async dispatch => {
+    posts.post('/posts', formValues);
 };
