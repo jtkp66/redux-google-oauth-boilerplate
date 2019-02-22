@@ -5,7 +5,7 @@ class PostCreate extends Component {
   renderInput(formProps) {
     return (
       <div className="field">
-      <label>{ formProps.label }</label>
+        <label>{formProps.label}</label>
         <input {...formProps.input} />
       </div>
     )
@@ -15,14 +15,19 @@ class PostCreate extends Component {
   //   return <input {...input} />;
   // }
 
+  onSubmit(formValues) {
+    console.log(formValues);
+  }
+
   render() {
     console.log(this.props);
     return (
-      <form className="ui form">
+      <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form">
         <Field name="title" component={this.renderInput} label="Enter a Title" />
         <Field name="description" component={this.renderInput} label="Enter a Description" />
+        <button className="ui button primary">Submit</button>
       </form>
-    )
+    );
   }
 }
 
