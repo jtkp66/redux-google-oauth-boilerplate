@@ -38,19 +38,20 @@ export const fetchPosts = () => async dispatch => {
 };
 
 export const fetchPost = (id) => async dispatch => {
-    const response = await posts.get(`/streams/${id}`);
+    const response = await posts.get(`/posts/${id}`);
 
     dispatch({ type: FETCH_POST, payload: response.data });
 };
 
 export const editPost = (id, formValues) => async dispatch => {
-    const response = await posts.put(`/posts/${id}`, formValues);
+    const response = await posts.patch(`/posts/${id}`, formValues);
 
     dispatch({ type: EDIT_POST, payload: response.data});
+    history.push('/');
 };
 
 export const deletePost = (id) => async dispatch => {
-    await posts.delete(`/streams/${id}`);
+    await posts.delete(`/posts/${id}`);
 
     dispatch({ type: DELETE_POST, payload: id });
 };
