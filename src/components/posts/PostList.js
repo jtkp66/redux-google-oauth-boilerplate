@@ -12,8 +12,8 @@ class PostList extends Component {
     if (post.userId === this.props.currentUserId) {
       return (
         <div className="right floated content">
-          <button className="ui button primary">Edit</button>
-          <button className="ui button negative">Delete</button>
+          <Link to={`/posts/edit/${post.id}`} className="ui button primary">Edit</Link>
+          <Link to="/" className="ui button negative">Delete</Link>
         </div>
       )
     }
