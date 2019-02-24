@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Modal from '../Modal';
 
 export default class PostDelete extends Component {
   render() {
     return (
       <div>
-        PostDelete
+        Post Delete
+        <Modal />
       </div>
     )
   }
