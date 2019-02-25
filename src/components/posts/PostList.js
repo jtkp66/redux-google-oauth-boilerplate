@@ -13,7 +13,7 @@ class PostList extends Component {
       return (
         <div className="right floated content">
           <Link to={`/posts/edit/${post.id}`} className="ui button primary">Edit</Link>
-          <Link to="/" className="ui button negative">Delete</Link>
+          <Link to={`/posts/delete/${post.id}`} className="ui button negative">Delete</Link>
         </div>
       )
     }
