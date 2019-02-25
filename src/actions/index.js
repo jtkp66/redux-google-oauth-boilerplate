@@ -54,4 +54,5 @@ export const deletePost = (id) => async dispatch => {
     await posts.delete(`/posts/${id}`);
 
     dispatch({ type: DELETE_POST, payload: id });
+    history.push('/');
 };
